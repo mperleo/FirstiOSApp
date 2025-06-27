@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(vm.cards) { card in
-                Text(card.nombre)
+                StarCardView(card: card)
             }
         }
     }
