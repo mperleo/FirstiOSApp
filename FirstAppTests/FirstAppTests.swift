@@ -8,10 +8,16 @@
 import Testing
 @testable import FirstApp
 
+extension Tag {
+    @Tag static var repository: Self
+}
+@Suite("Prueba repository StarCards", .tags(.repository))
 struct FirstAppTests {
+    let repository = RepositoryTest()
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    @Test("test de carga de datos") func dataLoad() async throws {
+        let data = try repository.getData()
+        #expect(data.count > 0)
     }
 
 }
